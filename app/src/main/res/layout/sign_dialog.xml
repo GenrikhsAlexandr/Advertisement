@@ -21,7 +21,7 @@
     </androidx.appcompat.widget.AppCompatTextView>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edSingEmailLayout"
+        android:id="@+id/edSignEmailLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -37,7 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            android:inputType="textEmailAddress">
+            android:inputType="textEmailAddress"
+            android:textColorHint="#757575">
 
         </com.google.android.material.textfield.TextInputEditText>
 
@@ -49,16 +50,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/password_hint"
-        app:layout_constraintEnd_toEndOf="@id/edSingEmailLayout"
-        app:layout_constraintStart_toStartOf="@id/edSingEmailLayout"
-        app:layout_constraintTop_toBottomOf="@id/edSingEmailLayout">
+        app:layout_constraintEnd_toEndOf="@id/edSignEmailLayout"
+        app:layout_constraintStart_toStartOf="@id/edSignEmailLayout"
+        app:layout_constraintTop_toBottomOf="@id/edSignEmailLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            android:inputType="textPassword">
+            android:inputType="textPassword"
+            android:textColorHint="#757575">
 
         </com.google.android.material.textfield.TextInputEditText>
 
@@ -68,9 +70,9 @@
         android:id="@+id/btSingInuP"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/edSingEmailLayout"
+        app:layout_constraintStart_toStartOf="@id/edSignEmailLayout"
         app:layout_constraintTop_toBottomOf="@id/edPasswordLayout"
-        app:layout_constraintEnd_toEndOf="@id/edSingEmailLayout"
+        app:layout_constraintEnd_toEndOf="@id/edSignEmailLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
@@ -81,9 +83,9 @@
         android:id="@+id/btForgetP"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/edSingEmailLayout"
+        app:layout_constraintStart_toStartOf="@id/edSignEmailLayout"
         app:layout_constraintTop_toBottomOf="@id/btSingInuP"
-        app:layout_constraintEnd_toEndOf="@id/edSingEmailLayout"
+        app:layout_constraintEnd_toEndOf="@id/edSignEmailLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"

@@ -13,6 +13,7 @@
     <string name="ac_sign_out">Выход</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="no_registration">Войти или зарегистрироваться</string>
     <!--Sign dialog-->
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
@@ -20,6 +21,7 @@
     <string name="sign_in_action">Войти</string>
     <string name="forget_password">Забыли пароль?</string>
     <string name="sign_up_error">Неудалось зарегистрироваться</string>
+    <string name="sign_in_error">Неудалось войти</string>
     <string name="email_verification_error">Неудалось отправить email для подтверждения</string>
     <string name="email_verification">На вашу почту отправлена ссылка для подтверждения вашего аккаунта</string>
 

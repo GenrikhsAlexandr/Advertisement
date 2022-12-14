@@ -6,12 +6,15 @@ import com.GenrikhsAlexandr.myapplication.R
 import com.google.firebase.auth.FirebaseUser
 
 class Account(activity: MainActivity) {
+
     private val act = activity
+
     fun signUpWithEmail(email: String, password: String) {
         if (email.isNotEmpty() && password.isNotEmpty()) {
-            act.mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener() { task ->
+            act.mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener() { task ->
                 if (task.isSuccessful) {
                     sendEmailVerification(task.result?.user!!)
+                    act.uiUpdate(task.result?.user)
                 } else {
                     Toast.makeText(act,
                         act.resources.getString(R.string.sign_up_error),
@@ -21,7 +24,21 @@ class Account(activity: MainActivity) {
         }
     }
 
-    fun sendEmailVerification(user: FirebaseUser) {
+    fun signInWithEmail(email: String, password: String) {
+        if (email.isNotEmpty() && password.isNotEmpty()) {
+            act.mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener() { task ->
+                if (task.isSuccessful) {
+                   act.uiUpdate(task.result?.user)
+                } else {
+                    Toast.makeText(act,
+                        act.resources.getString(R.string.sign_in_error),
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun sendEmailVerification(user: FirebaseUser) {
         user.sendEmailVerification().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Toast.makeText(act,
