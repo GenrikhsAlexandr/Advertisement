@@ -23,7 +23,9 @@
     <string name="sign_up_error">Неудалось зарегистрироваться</string>
     <string name="sign_in_error">Неудалось войти</string>
     <string name="email_verification_error">Неудалось отправить email для подтверждения</string>
+    <string name="email_is_empty">Введите адрес электронной почты</string>
     <string name="email_verification">На вашу почту отправлена ссылка для подтверждения вашего аккаунта</string>
+    <string name="password_recover">На вашу почту отправлена ссылка для восстановления пароля</string>
 
 
 </resources>
