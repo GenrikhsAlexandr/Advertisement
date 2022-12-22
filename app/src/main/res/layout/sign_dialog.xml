@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvSignTitle"
@@ -50,7 +51,6 @@
         app:layout_constraintTop_toBottomOf="@id/tvRecoveryP">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edSignEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
@@ -72,7 +72,6 @@
         app:layout_constraintTop_toBottomOf="@id/edSignEmailLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
@@ -83,12 +82,25 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/signButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:buttonSize="standard"
+        app:layout_constraintEnd_toEndOf="@id/edSignEmailLayout"
+        app:layout_constraintStart_toStartOf="@id/edSignEmailLayout"
+
+        app:layout_constraintTop_toBottomOf="@id/edPasswordLayout">
+
+    </com.google.android.gms.common.SignInButton>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btSingInuP"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/edSignEmailLayout"
-        app:layout_constraintTop_toBottomOf="@id/edPasswordLayout"
+        app:layout_constraintTop_toBottomOf="@id/signButton"
         app:layout_constraintEnd_toEndOf="@id/edSignEmailLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="8dp"

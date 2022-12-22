@@ -3,10 +3,11 @@ package com.GenrikhsAlexandr.myapplication.dialog
 import android.app.AlertDialog
 import android.view.View
 import android.widget.Toast
-import androidx.core.view.isNotEmpty
-import com.GenrikhsAlexandr.myapplication.MainActivity
+import com.GenrikhsAlexandr.myapplication.presitation.MainActivity
 import com.GenrikhsAlexandr.myapplication.R
 import com.GenrikhsAlexandr.myapplication.account.Account
+import com.GenrikhsAlexandr.myapplication.account.AccountGoogle
+import com.GenrikhsAlexandr.myapplication.constants.ConstantsDialog
 import com.GenrikhsAlexandr.myapplication.databinding.SignDialogBinding
 
 
@@ -14,7 +15,9 @@ class Dialog(activity: MainActivity) {
 
     private val act = activity
 
-    private val acc = Account(act)
+    val acc = Account(act)
+
+    val accGoogle = AccountGoogle(act)
 
     fun dialogSingUp(index: Int) {
         val builder = AlertDialog.Builder(act)
@@ -33,13 +36,17 @@ class Dialog(activity: MainActivity) {
             setOnClickForgetP(binding, dialog)
         }
 
+        binding.signButton.setOnClickListener {
+            accGoogle.signInWithGoogle()
+            dialog.dismiss()
+        }
 
         dialog.show()
     }
 
 
     private fun setOnClickForgetP(binding: SignDialogBinding, dialog: AlertDialog?) {
-        if(binding.edSignEmailLayout.editText?.text?.isNotEmpty() == true) {
+        if (binding.edSignEmailLayout.editText?.text?.isNotEmpty() == true) {
             act.mAuth.sendPasswordResetEmail(binding.edSignEmailLayout.editText?.text.toString())
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -47,25 +54,26 @@ class Dialog(activity: MainActivity) {
                     }
                 }
             dialog?.dismiss()
-        }
-        else {
+        } else {
             binding.tvRecoveryP.visibility = View.VISIBLE
         }
     }
 
     private fun setOnClickSignUpIn(index: Int, binding: SignDialogBinding, dialog: AlertDialog?) {
         dialog?.dismiss()
-        if (index == Constants.SIGN_UP_STATE) {
-            acc.signUpWithEmail(binding.edSignEmailLayout.editText?.text.toString(), binding.edPasswordLayout.editText?.text.toString())
+        if (index == ConstantsDialog.SIGN_UP_STATE) {
+            acc.signUpWithEmail(binding.edSignEmailLayout.editText?.text.toString(),
+                binding.edPasswordLayout.editText?.text.toString())
 
         } else {
-            acc.signInWithEmail(binding.edSignEmailLayout.editText?.text.toString(), binding.edPasswordLayout.editText?.text.toString())
+            acc.signInWithEmail(binding.edSignEmailLayout.editText?.text.toString(),
+                binding.edPasswordLayout.editText?.text.toString())
         }
 
     }
 
     private fun setDialogState(index: Int, binding: SignDialogBinding) {
-        if (index == Constants.SIGN_UP_STATE) {
+        if (index == ConstantsDialog.SIGN_UP_STATE) {
             binding.tvSignTitle.text = act.resources.getString(R.string.ac_sign_up)
             binding.btSingInuP.text = act.resources.getString(R.string.sign_up_action)
 

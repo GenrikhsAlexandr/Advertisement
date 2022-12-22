@@ -27,5 +27,9 @@
     <string name="email_verification">На вашу почту отправлена ссылка для подтверждения вашего аккаунта</string>
     <string name="password_recover">На вашу почту отправлена ссылка для восстановления пароля</string>
 
+    <!--Error-->
+    <string name="ERROR_EMAIL_ALREADY_IN_USEr">Адрес электронной почты уже используется</string>
+    <string name="mew_ad">Mew ad</string>
+
 
 </resources>
