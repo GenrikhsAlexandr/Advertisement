@@ -10,8 +10,7 @@ import com.GenrikhsAlexandr.myapplication.account.AccountGoogle
 import com.GenrikhsAlexandr.myapplication.constants.ConstantsDialog
 import com.GenrikhsAlexandr.myapplication.databinding.SignDialogBinding
 
-
-class Dialog(activity: MainActivity) {
+class DialogAccount(activity: MainActivity) {
 
     private val act = activity
 
@@ -23,27 +22,20 @@ class Dialog(activity: MainActivity) {
         val builder = AlertDialog.Builder(act)
         val binding = SignDialogBinding.inflate(act.layoutInflater)
         builder.setView(binding.root)
-
         setDialogState(index, binding)
-
         val dialog = builder.create()
-
         binding.btSingInuP.setOnClickListener {
             setOnClickSignUpIn(index, binding, dialog)
         }
-
         binding.btForgetP.setOnClickListener {
             setOnClickForgetP(binding, dialog)
         }
-
         binding.signButton.setOnClickListener {
             accGoogle.signInWithGoogle()
             dialog.dismiss()
         }
-
         dialog.show()
     }
-
 
     private fun setOnClickForgetP(binding: SignDialogBinding, dialog: AlertDialog?) {
         if (binding.edSignEmailLayout.editText?.text?.isNotEmpty() == true) {
@@ -69,7 +61,6 @@ class Dialog(activity: MainActivity) {
             acc.signInWithEmail(binding.edSignEmailLayout.editText?.text.toString(),
                 binding.edPasswordLayout.editText?.text.toString())
         }
-
     }
 
     private fun setDialogState(index: Int, binding: SignDialogBinding) {
@@ -82,8 +73,5 @@ class Dialog(activity: MainActivity) {
             binding.btSingInuP.text = act.resources.getString(R.string.sign_in_action)
             binding.btForgetP.visibility = View.VISIBLE
         }
-
     }
-
-
 }

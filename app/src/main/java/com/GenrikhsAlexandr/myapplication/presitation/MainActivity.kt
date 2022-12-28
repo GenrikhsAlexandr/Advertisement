@@ -13,7 +13,7 @@ import androidx.core.view.GravityCompat
 import com.GenrikhsAlexandr.myapplication.R
 import com.GenrikhsAlexandr.myapplication.databinding.ActivityMainBinding
 import com.GenrikhsAlexandr.myapplication.constants.ConstantsDialog
-import com.GenrikhsAlexandr.myapplication.dialog.Dialog
+import com.GenrikhsAlexandr.myapplication.dialog.DialogAccount
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.navigation.NavigationView
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var binding: ActivityMainBinding
 
-    private val dialog = Dialog(this)
+    private val dialog = DialogAccount(this)
 
     val mAuth = FirebaseAuth.getInstance()
 
@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         init()
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -71,9 +70,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onStart() {
         super.onStart()
         uiUpdate(mAuth.currentUser)
-
     }
-
 
     private fun init() {
         setSupportActionBar(binding.mainContent.toolbar)

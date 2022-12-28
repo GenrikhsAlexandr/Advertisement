@@ -60,7 +60,7 @@ class Account(activity: MainActivity) {
                             Toast.makeText(act, ConstansError.ERROR_WRONG_PASSWORD,
                                 Toast.LENGTH_SHORT).show()
                         }
-                        if (exception.errorCode == ConstansError.ERROR_INVALID_EMAIL){
+                        if (exception.errorCode == ConstansError.ERROR_INVALID_EMAIL) {
                             Toast.makeText(act, ConstansError.ERROR_INVALID_EMAIL,
                                 Toast.LENGTH_SHORT).show()
                         }
@@ -75,7 +75,6 @@ class Account(activity: MainActivity) {
             }
         }
     }
-
 
     private fun sendEmailVerification(user: FirebaseUser) {
         user.sendEmailVerification().addOnCompleteListener { task ->

@@ -2,6 +2,7 @@ package com.GenrikhsAlexandr.myapplication.utils
 
 
 import android.content.Context
+import com.GenrikhsAlexandr.myapplication.R
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -27,5 +28,21 @@ object City {
         } catch (_: JSONException) {
         }
         return tempArray
+    }
+
+    fun filterListCountry(list: ArrayList<String>, searchText: String?): ArrayList<String> {
+        val tempList = ArrayList<String>()
+        tempList.clear()
+        if (searchText == null){
+            tempList.add(R.string.no_result.toString())
+            return tempList
+        }
+        for (selection: String in list){
+            if (selection.lowercase().startsWith(searchText.lowercase()))
+                tempList.add(selection)
+        }
+        if (tempList.size == 0)tempList.add(R.string.no_result.toString())
+        return tempList
+
     }
 }
